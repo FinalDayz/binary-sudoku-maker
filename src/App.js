@@ -1,25 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import SudokuDisplay from "./ui/sudoku-display";
+import {useState} from "react";
+import SudokoPossibilities from "./ui/possibilities";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [currentSudoku, setCurrentSudoku] = useState('01??0?1??100?10??1?0??10001????1??1??');
+
+    function edit(sudoku) {
+        setCurrentSudoku(sudoku);
+    }
+
+    return (
+        <div className="App wrapper">
+            <div className={'main-sudoku'}>
+                <SudokuDisplay
+                    onEdit={edit}
+                    sudoku={currentSudoku}
+                ></SudokuDisplay>
+            </div>
+
+            <div className={'variations'}>
+                <SudokoPossibilities sudoku={currentSudoku}></SudokoPossibilities>
+            </div>
+        </div>
+    );
 }
 
 export default App;

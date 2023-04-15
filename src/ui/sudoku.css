@@ -1,0 +1,40 @@
+.sudoku-row {
+    /*margin-top: 10px;*/
+    /*margin-bottom: 10px;*/
+}
+
+.sudoku-block-small {
+    font-size: 1em;
+    padding-left: 4px;
+    padding-right: 4px;
+    min-width: 9px;
+}
+
+.sudoku-block-normal {
+    font-size: 2em;
+    padding-left: 8px;
+    padding-right: 8px;
+    min-width: 19px;
+}
+
+.sudoku-block {
+    display: inline-block;
+}
+
+.sudoku-block-wrapper {
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid black;
+    user-select: none;
+}
+
+.type-question {
+    color: gold;
+}
+
+.possibilities-wrapper {
+    display: flex;
+    gap: 10px;
+    width: 500px;
+    flex-wrap: wrap;
+}
