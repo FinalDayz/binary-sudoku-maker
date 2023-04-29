@@ -1,6 +1,5 @@
 .App {
   margin-top: 100px;
-  text-align: center;
   margin-left: 200px;
   margin-right: 200px;
 }
@@ -8,17 +7,13 @@
 .wrapper {
   display: flex;
   flex-direction: row;
-  gap: 50px;
-}
-
-.main-sudoku {
-
-}
-
-.variations {
-
+  gap: 75px;
 }
 
 h2 {
   margin-top: 0;
+}
+
+.inline {
+  display: inline;
 }

@@ -1,19 +1,19 @@
-import {getRandomFont} from "../logic/font";
-import {useState} from "react";
+import { getRandomFont } from "../logic/font";
+import { useState } from "react";
 
 function SudokuBlock(
     {
         small,
         value,
         onclick,
-        onhover,
+        posibities,
     }
 ) {
     let blockType = small ? 'sudoku-block-small' : 'sudoku-block-normal';
     let borderPx = small ? '2' : '3';
     let [hasBorder, setBorder] = useState(false);
     let border = hasBorder ?
-        borderPx+"px solid blue" : borderPx+'px solid rgba(0,0,0,0)';
+        borderPx + "px solid blue" : borderPx + 'px solid rgba(0,0,0,0)';
 
     const type = value === '?' ? 'type-question' : 'type-one-or-zero';
 
@@ -23,16 +23,22 @@ function SudokuBlock(
 
     function onMouseOver(event) {
         setBorder(true);
-        onhover(event);
     }
+
+    const posibilitiesLabel = posibities ? (
+        <span className='posibities-label'>{posibities.toLocaleString()}</span>
+    ) : undefined;
 
     return <div
         className={[blockType, 'sudoku-block', type].join(' ')}
-        style={{fontFamily: 'Rockwell', border: border}}
+        style={{ fontFamily: 'Rockwell', border: border }}
         onClick={onclick}
         onMouseOver={onMouseOver}
         onMouseLeave={onMouseLeave}
-    >{value}</div>
+    >
+        <span className='block-label'>{value}</span>
+        {posibilitiesLabel}
+    </div>
 }
 
 export default SudokuBlock;

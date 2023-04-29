@@ -1,27 +1,41 @@
 .sudoku-row {
-    /*margin-top: 10px;*/
-    /*margin-bottom: 10px;*/
+    display: flex;
+}
+
+.block-label {
+    display: inline;
+}
+
+.posibities-label {
+    font-size: 0.5em;
+    color: gray;
+    display:inline
 }
 
 .sudoku-block-small {
-    font-size: 1em;
+    font-size: 1.5em;
     padding-left: 4px;
     padding-right: 4px;
-    min-width: 9px;
+    min-width: 25px;
+    min-height: 30px;
 }
 
 .sudoku-block-normal {
     font-size: 2em;
     padding-left: 8px;
     padding-right: 8px;
-    min-width: 19px;
+    min-width: 50px;
+    min-height: 60px;
 }
 
 .sudoku-block {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .sudoku-block-wrapper {
+    text-align: center;
     cursor: pointer;
     display: inline-block;
     border: 1px solid black;
@@ -32,9 +46,20 @@
     color: gold;
 }
 
+.variations-wrapper {
+    display: flex;
+    gap: 20px;
+    width: 800px;
+    flex-wrap: wrap;
+}
+
 .possibilities-wrapper {
     display: flex;
     gap: 10px;
-    width: 500px;
+    width: 800px;
     flex-wrap: wrap;
+}
+
+.hidden {
+    display: none;
 }

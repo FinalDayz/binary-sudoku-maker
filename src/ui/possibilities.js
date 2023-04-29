@@ -1,5 +1,5 @@
-import {useState} from "react";
-import {getVariations} from "../logic/variations"
+import { useState } from "react";
+import { getVariations } from "../logic/variations"
 import SudokuDisplay from "./sudoku-display";
 
 function SudokuPossibilities(
@@ -12,18 +12,19 @@ function SudokuPossibilities(
     }
 
     const variations = getVariations(sudoku);
-    console.log(variations)
+    console.log(variations);
     return <div>
         <h2>Sudoku variations ({variations.length}):</h2>
         <div className='possibilities-wrapper'>
-            {variations.map((sudoku, index) => index < 100 ? (
+            {variations.map((sudokuVariation, index) => index < 100 ? (
                 <SudokuDisplay
+                    key={index}
                     small={true}
-                    sudoku={sudoku}
+                    sudoku={sudokuVariation}
+                // highlighted={sudoku}
                 ></SudokuDisplay>) : '')}
         </div>
     </div>
 
 }
-
 export default SudokuPossibilities;
